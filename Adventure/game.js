@@ -24,13 +24,13 @@ function Game(){
     Kitchen();
     
     function Kitchen(){
-        var kitchen = prompt("You've made it into the mannor. Now let's see what you can take before getting out of here. \n -look around \n -go left into dining room \n - go right into hallway \n -go forward"). toLowerCase();
+        var kitchen = prompt("You've made it into the manor. Now let's see what you can take before getting out of here. \n -look around \n -go left into dining room \n - go right into hallway \n -go forward"). toLowerCase();
         
         if(kitchen == "look around" || kitchen == "look"){
             
             var kitchenlook = prompt("There's a large table, dusted with flour. A pantry is to your right, most likely full of food. There are cupboards lining the wall, and you imagine fancy dishes fill them. Drawers are beside an oven and a sink with a stool. \n -look in cupboards \n -look in drawers \n -turn on sink \n look in pantry");
             
-             if(kitchenlook == "look in cupboards" || kitchen == "cupboards look"){
+             if(kitchenlook == "look in cupboards" || kitchenlook == "cupboards look"){
             
             var kitchencupboardlook = prompt("As you suspected, there are nice dishes in here. They might make noise or break if you take them. Is that a risk you're willing to take? \n -yes \n -no"); 
                  
@@ -41,8 +41,20 @@ function Game(){
                  else if(kitchencupboardlook == "no"){
                      var kitchenno = alert("Having them break wouldn't be worth it. You leave the dishes alone.");
                  }
+                 
+                 else if(kitchenlook == "look in drawers" || kitchenlook == "drawers look"){
+                     
+                     var kitchendrawers = confirm("actual silverware clutters theses drawers. They glitter in the moon's light. Do you take them?");
+                     
+                     if(kitchendrawers){
+                         // Adds stolen item +1
+                         inventory.stolen_items ++;
+                         alert("You now have" +inventory.stolen_items+"stolen items");
+                     }
+                     
+                 }
         }
-        
+            
         }
         
         else if(kitchen == "go left" || kitchen == "go into dining room"){
@@ -97,7 +109,7 @@ function Game(){
             var studychest = prompt("It is locked, and cannot be opened without a key.");
         }
         
-        else if(study == "take painting" || study == "painting take"){
+        else if(study == "take painting" || study == "take the painting"){
             alert("you quickly snatched the painting.");
         }
         
@@ -105,15 +117,21 @@ function Game(){
             var studydesk = prompt("The desk has nothing of value on it, but it does have drawers that you could look in. \n -look in drawers \n -move on");
             
             if(studydesk == "look in drawers" || studydesk == "search drawers"){
-                var deskdrawers = prompt("There isn't much of value, but there is a small key you found. You now have the small key");
+                var deskdrawers = confirm("There isn't much of value, but there is a small key you found. Would you like to take it?");
+                
+                if(deskdrawers){
+                    // Adds key +1
+                    inventory.keys ++;
+                    alert("You now have" +inventory.keys+"keys");
+                }
             }
             
-            else if(studydesk == "move on" || "back to dining room"){
+            else if(studydesk == "move on" || studydesk == "back to dining room" || studydesk == "go to dining room"){
                 DiningRoom();
             }
         }
         
-        else if(study == "back to dining room"){
+        else if(study == "back to dining room" || study == "go to dining room"){
             DiningRoom();
         }
         
@@ -122,5 +140,44 @@ function Game(){
             PrivateStudy();
         }
     }
-    
+            //Javascript Object for an inventory
+            var inventory = {
+                stolen_items:0,
+                keys:0,
+                items_worth:0,
+            }
 }
+        /*
+        function Castle(){
+        var insidecastle = prompt("prompts")
+        switch(insidecastle){
+                case "upstairs":
+                var upstairs = prompt("description")
+                break;
+                case "downstairs"
+                alert("alert")
+                break;
+                default("I don't know what "insidecastle+" is!");
+                break;
+        }
+        
+        if(variable == "stuff" && inventory.coins >= 100){
+        var swordbuy = comfirm("are you sure you want to buy this?);
+        if(swordbuy){
+        // adds sword +1
+        inventory.sword ++;
+        alert('you own" +inventory.sword+" swords");
+        //takes money out of account for sword
+        inventory.coins = inventory.coins - 100;
+        
+        //shorthand notation: inventory.coins -= 100;
+        
+        // displays coins left in account
+        alert("you have "+inventory.coins+" coins remaining")
+        function();
+        }
+        
+        }
+        
+        }
+        */
