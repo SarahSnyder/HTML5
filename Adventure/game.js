@@ -51,7 +51,7 @@ function Game(){
                          inventory.stolen_items ++;
                          alert("You now have" +inventory.stolen_items+"stolen items");
                      }
-                     
+                     Kitchen();
                  }
         }
             
@@ -74,6 +74,7 @@ function Game(){
         
         if(diningroom1 == "take candelabra"){
             alert("you now have candelabra");
+			DiningRoom();
         }
         
         else if(diningroom1 == "go to piano"){
@@ -84,6 +85,7 @@ function Game(){
             }
             else if(diningroompiano == "take some of the ivory"){
                 var diningroomivorys = prompt("They aren't easy to detach, but soon enough you have a good handful of the precious keys.");
+				DiningRoom();
             }
             
         }
@@ -92,7 +94,7 @@ function Game(){
             PrivateStudy();
         }
         
-        else if(diningroom1 == "back to kitchen" || "go to kitchen"){
+        else if(diningroom1 == "back to kitchen" || diningroom1 == "go to kitchen"){
                 Kitchen();
             }
         
@@ -106,11 +108,14 @@ function Game(){
         var study = prompt("It appears to be a private study, where a desk sits at the left of the doom, and a locked chest at the right. A painting is hung in front of you. \n -go to chest \n -take painting \n -go to desk \n -back to dining room");
         
         if(study == "go to chest"){
-            var studychest = prompt("It is locked, and cannot be opened without a key.");
+            var studychest = alert("It is locked, and cannot be opened without a key.");
+			
+            PrivateStudy();
         }
         
         else if(study == "take painting" || study == "take the painting"){
             alert("you quickly snatched the painting.");
+			PrivateStudy();
         }
         
         else if(study == "go to desk"){
@@ -124,19 +129,23 @@ function Game(){
                     inventory.keys ++;
                     alert("You now have" +inventory.keys+"keys");
                 }
+				PrivateStudy();
             }
             
             else if(studydesk == "move on" || studydesk == "back to dining room" || studydesk == "go to dining room"){
+				
                 DiningRoom();
             }
         }
         
         else if(study == "back to dining room" || study == "go to dining room"){
+			
             DiningRoom();
         }
         
         else{
             alert("You can't do that " + study);
+			
             PrivateStudy();
         }
     }
@@ -178,6 +187,9 @@ function Game(){
         }
         
         }
+        
+        //array
+        var wizardnames =  ["name, othername, stillname"];
         
         }
         */
