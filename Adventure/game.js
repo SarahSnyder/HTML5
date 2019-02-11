@@ -24,7 +24,7 @@ function Game(){
     Kitchen();
     
     function Kitchen(){
-        var kitchen = prompt("You've made it into the manor. Now let's see what you can take before getting out of here. \n -look around \n -go left into dining room \n - go right into hallway \n -go forward"). toLowerCase();
+        var kitchen = prompt("You've made it into the manor. Now let's see what you can take before getting out of here. \n -look around \n -go left into dining room \n -go forward"). toLowerCase();
         
         if(kitchen == "look around" || kitchen == "look"){
             
@@ -53,14 +53,22 @@ function Game(){
                      }
                      Kitchen();
                  }
+				 
         }
-            
+			
+			 else if(kitchenlook == "turn on sink"){
+					 alert("You're sure you want to do that? Well, as you wash your hands in the sink, someone hears and you get caught! Game over!")
+				 }
+
         }
         
         else if(kitchen == "go left" || kitchen == "go into dining room"){
             DiningRoom();
         }
-        
+		
+		else if(kitchen == "go forward"){
+			LivingRoom();
+		}
         
         else{
             alert("You can't do that " + kitchen);
@@ -81,7 +89,7 @@ function Game(){
             var diningroompiano = prompt("\n - play piano \n -take some of the ivory")
             
             if(diningroompiano == "play piano"){
-                alert("Are you sure? As you tap the keys playing a song your mom taught you, a heavy sword brings your head down with a clunk... You've been caught! Game Over");
+                alert("Are you sure? As you tap the keys playing a song your mom taught you, a heavy sword brings your head down with a clunk... You've been caught! Game over!");
             }
             else if(diningroompiano == "take some of the ivory"){
                 var diningroomivorys = prompt("They aren't easy to detach, but soon enough you have a good handful of the precious keys.");
@@ -149,6 +157,54 @@ function Game(){
             PrivateStudy();
         }
     }
+	
+	function LivingRoom(){
+		var livingroom = prompt("It appears to be a living room; devoid of empty space. There's are two couches with lacey throw pillows placed neatly on top. There's a table between the couches housing a glass vase filled with lilys. There are shelves with glass covers full of books and other items: porcelain figures, unused dishes, trophys, fabric flowers. \n -open shelves *requires key* \n -sit down \n -continue down entry to front door \n -go up the stairs")
+		
+		if(livingroom == "sit down" || livingroom == "sit"){
+			var livingsit = confirm("You sit in the silent dark. Would you like to get up?")
+			
+			if(livingsit){
+				LivingRoom();
+			}
+			
+		}
+		
+		else if(livingroom == "continue down entry to front door" || livingroom == "go to front door" || livingroom == "continue down entry" || livingroom == "go down to front door"){
+			FrontDoor();
+		}
+		
+		else if(livingroom == "go up the stairs"){
+			Upstairs();
+		}
+		
+		else{
+			alert("You can't do that " + livingroom);
+			LivingRoom();
+		}
+	
+	}
+	
+	function FrontDoor(){
+		var frontdoor = prompt("You're at the front door. Do you wish to leave this way? *this ends the game* \n -yes \n -no")
+		
+		if(frontdoor == "yes"){
+			alert("Thus, the theiving is done. End Game.")
+		}
+		
+		else if(frontdoor ==)
+		
+		else{
+			alert("You can't do that " + frontdoor);
+			FrontDoor();
+		}
+	}
+	
+	function Upstairs(){
+		var upstairs = prompt("You've gone up the stairs, now on the top floor.")
+	}
+	
+	
             //Javascript Object for an inventory
             var inventory = {
                 stolen_items:0,
