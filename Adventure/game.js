@@ -135,9 +135,13 @@ function Game(){
                 if(deskdrawers){
                     // Adds key +1
                     inventory.keys ++;
-                    alert("You now have" +inventory.keys+"keys");
+                    alert("You now have" +inventory.keys+" keys");
+					
+					// displays amount of keys in account
+        alert("you have "+inventory.keys+" keys");
+        PrivateStudy();
                 }
-				PrivateStudy();
+				
             }
             
             else if(studydesk == "move on" || studydesk == "back to dining room" || studydesk == "go to dining room"){
@@ -159,7 +163,7 @@ function Game(){
     }
 	
 	function LivingRoom(){
-		var livingroom = prompt("It appears to be a living room; devoid of empty space. There's are two couches with lacey throw pillows placed neatly on top. There's a table between the couches housing a glass vase filled with lilys. There are shelves with glass covers full of books and other items: porcelain figures, unused dishes, trophys, fabric flowers. \n -open shelves *requires key* \n -sit down \n -continue down entry to front door \n -go up the stairs")
+		var livingroom = prompt("It appears to be a living room; devoid of empty space. There's are two couches with lacey throw pillows placed neatly on top. There's a table between the couches housing a glass vase filled with lilys. There are shelves with glass covers full of books and other items: porcelain figures, unused dishes, trophys, fabric flowers. \n -open shelves *requires key* \n -sit down \n -continue down entry to front door \n -go up the stairs \n -return to kitchen")
 		
 		if(livingroom == "sit down" || livingroom == "sit"){
 			var livingsit = confirm("You sit in the silent dark. Would you like to get up?")
@@ -170,11 +174,15 @@ function Game(){
 			
 		}
 		
+		else if(livingroom == "return to kitchen" || livingroom == "go to kitchen" || livingroom == "back to kitchen"){
+			Kitchen();
+		}
+		
 		else if(livingroom == "continue down entry to front door" || livingroom == "go to front door" || livingroom == "continue down entry" || livingroom == "go down to front door"){
 			FrontDoor();
 		}
 		
-		else if(livingroom == "go up the stairs"){
+		else if(livingroom == "go up the stairs" || livingroom == "go up stairs"){
 			Upstairs();
 		}
 		
@@ -192,7 +200,9 @@ function Game(){
 			alert("Thus, the theiving is done. End Game.")
 		}
 		
-		else if(frontdoor ==)
+		else if(frontdoor == "no"){
+			LivingRoom();
+		}
 		
 		else{
 			alert("You can't do that " + frontdoor);
@@ -201,9 +211,41 @@ function Game(){
 	}
 	
 	function Upstairs(){
-		var upstairs = prompt("You've gone up the stairs, now on the top floor.")
+		var upstairs = prompt("You've gone up the stairs, now on the top floor. \n -look around");
+		
+		if(upstairs == "look around"){
+			prompt("There are multiple doors leading into other rooms. \n -go through first door \n -go through second door \n -go through third door")
+			
+			if(upstairs == "go through first door"){
+				BedroomOne();
+			}
+		}
+		
+		else if(upstairs == "go through second door"){
+			BedroomTwo();
+		}
+		
+		else if(upstairs == "go through third door"){
+			BedroomThree();
+		}
+		
+		else{
+			alert("You can't do that " + upstairs);
+			Upstairs();
+		}
 	}
 	
+	function BedroomOne(){
+		var childbed = prompt("things");
+	}
+	
+	function BedroomTwo(){
+		var boybed = prompt("things2");
+	}
+	
+	function BedroomThree(){
+		var adultbed = prompt("thingsing");
+	}
 	
             //Javascript Object for an inventory
             var inventory = {
