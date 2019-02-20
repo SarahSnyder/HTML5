@@ -36,22 +36,28 @@ function Game(){
                  
                  if(kitchencupboardlook == "yes"){
                      var kitchenyes = alert("You're willing to take the risk. You have the fancy dishes!");
+					 Kitchen();
                  }
                  
                  else if(kitchencupboardlook == "no"){
                      var kitchenno = alert("Having them break wouldn't be worth it. You leave the dishes alone.");
+					 Kitchen();
                  }
                  
                  else if(kitchenlook == "look in drawers" || kitchenlook == "drawers look"){
-                     
                      var kitchendrawers = confirm("actual silverware clutters theses drawers. They glitter in the moon's light. Do you take them?");
                      
-                     if(kitchendrawers){
+                     if(kitchendrawers == "ok"){
                          // Adds stolen item +1
                          inventory.stolen_items ++;
                          alert("You now have" +inventory.stolen_items+"stolen items");
+						 Kitchen();
                      }
-                     Kitchen();
+                     
+					 else if(kitchendrawers == "cancel"){
+						 alert("You leave the silverware alone.");
+						 Kitchen();
+					 }
                  }
 				 
         }
@@ -62,7 +68,7 @@ function Game(){
 
         }
         
-        else if(kitchen == "go left" || kitchen == "go into dining room"){
+        else if(kitchen == "go left" || kitchen == "go into dining room" || kitchen == "go left into dining room"){
             DiningRoom();
         }
 		
@@ -91,10 +97,15 @@ function Game(){
             if(diningroompiano == "play piano"){
                 alert("Are you sure? As you tap the keys playing a song your mom taught you, a heavy sword brings your head down with a clunk... You've been caught! Game over!");
             }
-            else if(diningroompiano == "take some of the ivory"){
-                var diningroomivorys = prompt("They aren't easy to detach, but soon enough you have a good handful of the precious keys.");
+            else if(diningroompiano == "take some of the ivory" || diningroompiano == "take ivory"){
+                var diningroomivorys = alert("They aren't easy to detach, but soon enough you have a good handful of the precious keys.");
 				DiningRoom();
             }
+			
+			else{
+				alert("You can't do that " + diningroompiano);
+				DiningRoom();
+			}
             
         }
         
@@ -163,7 +174,7 @@ function Game(){
     }
 	
 	function LivingRoom(){
-		var livingroom = prompt("It appears to be a living room; devoid of empty space. There's are two couches with lacey throw pillows placed neatly on top. There's a table between the couches housing a glass vase filled with lilys. There are shelves with glass covers full of books and other items: porcelain figures, unused dishes, trophys, fabric flowers. \n -open shelves *requires key* \n -sit down \n -continue down entry to front door \n -go up the stairs \n -return to kitchen")
+		var livingroom = prompt("It appears to be a living room; devoid of empty space. There are two couches with lacey throw pillows placed neatly on top. There's a table between the couches housing a glass vase filled with lilys. There are shelves with glass covers full of books and other items: porcelain figures, unused dishes, trophys, fabric flowers. \n -open shelves *requires key* \n -sit down \n -continue down entry to front door \n -go up the stairs \n -return to kitchen")
 		
 		if(livingroom == "sit down" || livingroom == "sit"){
 			var livingsit = confirm("You sit in the silent dark. Would you like to get up?")
@@ -214,7 +225,7 @@ function Game(){
 		var upstairs = prompt("You've gone up the stairs, now on the top floor. \n -look around");
 		
 		if(upstairs == "look around"){
-			prompt("There are multiple doors leading into other rooms. \n -go through first door \n -go through second door \n -go through third door")
+			prompt("There are multiple doors leading into other rooms. \n -go through first door \n -go through second door \n -go through third door \n -back to living room")
 			
 			if(upstairs == "go through first door"){
 				BedroomOne();
@@ -229,6 +240,10 @@ function Game(){
 			BedroomThree();
 		}
 		
+		else if(upstairs == "back to living room" || upstairs == "go down the stairs"){
+			LivingRoom();
+		}
+		
 		else{
 			alert("You can't do that " + upstairs);
 			Upstairs();
@@ -236,15 +251,59 @@ function Game(){
 	}
 	
 	function BedroomOne(){
-		var childbed = prompt("things");
+		var childbed = prompt("It's a child's room. They're sleeping soundly in their bed, unaware of your pressence. You doubt there's anything worth taking in here. \n -leave room \n -look around");
+		
+		if(childbed == "leave room"){
+			Upstairs();
+		}
+		
+		else if(childbed == "look around"){
+			var childlook = prompt("thingthingthing")
+		}
+		
+		else{
+			alert("You can't do that " + childbed);
+			BedroomOne();
+		}
 	}
 	
 	function BedroomTwo(){
-		var boybed = prompt("things2");
+		var boybed = prompt("It's a boy's room. The floor is littered with clothes and small sheaved daggers. He has a chest at the end of his bed. Maybe venturing to check it wouldn't be such a bad idea? \n -leave room \n -sneak to chest");
+		
+		if(boybed == "leave room"){
+			Upstairs();
+		}
+		
+		else if(boybed == "sneak to chest"){
+			var boysneak = prompt("things")
+		}
+		
+		else{
+			alert("You can't do that " + boybed);
+			BedroomTwo();
+		}
 	}
 	
 	function BedroomThree(){
-		var adultbed = prompt("thingsing");
+		var adultbed = prompt("The man of the house and his wife are sleeping in their bed. There are chests and dressers which you can only imagine hold priceless items. The closet was left open, showing a vanity filled with jewely. You'll be rich if you could get past the slumbering couple.\n -leave room \n -search drawers \n -enter vanity room");
+		
+		if(adultbed == "leave room"){
+			Upstairs();
+		}
+		
+		else if(adultbed == "search drawers"){
+			var adultdrawers = confirm("Are you sure you want to open it? There's a possibility that you might wake the sleeping couple")
+			
+			if(adultdrawers == "yes"){
+				alert("THIS IS AN ALERT!");
+				BedroomThree();
+			}
+		}
+		
+		else{
+			alert("You can't do that " + adultbed);
+			BedroomThree();
+		}
 	}
 	
             //Javascript Object for an inventory
