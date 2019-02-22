@@ -225,25 +225,26 @@ function Game(){
 		var upstairs = prompt("You've gone up the stairs, now on the top floor. \n -look around");
 		
 		if(upstairs == "look around"){
-			prompt("There are multiple doors leading into other rooms. \n -go through first door \n -go through second door \n -go through third door \n -back to living room")
+			var uplook = prompt("There are multiple doors leading into other rooms. \n -go through first door \n -go through second door \n -go through third door \n -back to living room");
 			
-			if(upstairs == "go through first door"){
+			if(uplook == "go through first door"){
 				BedroomOne();
 			}
-		}
-		
-		else if(upstairs == "go through second door"){
+			
+			else if(uplook == "go through second door"){
 			BedroomTwo();
 		}
 		
-		else if(upstairs == "go through third door"){
+		else if(uplook == "go through third door"){
 			BedroomThree();
 		}
 		
-		else if(upstairs == "back to living room" || upstairs == "go down the stairs"){
+		else if(uplook == "back to living room" || upstairs == "go down the stairs"){
 			LivingRoom();
 		}
-		
+			
+		}
+
 		else{
 			alert("You can't do that " + upstairs);
 			Upstairs();
@@ -275,7 +276,7 @@ function Game(){
 		}
 		
 		else if(boybed == "sneak to chest"){
-			var boysneak = prompt("things")
+			var boysneak = prompt("There's a small pouch with a little money in it, as well as a sheet of chainmail and a crumpled love letter. 'You'll always be the only one I love, Roan. I owed you my heart since I first-' you stop reading. Who writes this garbage? Scanning for a name, you find it's your younger sister. The fool... \n -take money \n -take chainmail")
 		}
 		
 		else{
@@ -349,4 +350,39 @@ function Game(){
         var wizardnames =  ["name, othername, stillname"];
         
         }
+		
+		//loop
+		var playerName = prompt("What is your name?");
+		
+		while(!confirm("Are you sure you want "+playerName+" as a name?")){
+		playerName = prompt("What name do you want?");
+		}
+		
+		var purchase = prompt("Welcome to the shop, what would you like to buy? \n - arrows:"+arrowShop).toLowerCase();
+		
+		if(purchase == "arrows" || purchase == "arrow"){
+		var arrowCon = prompt("How many arrows would you like to purchase?"):
+		
+		while(!confirm("Are you sure you want to purchase "+arrowCon+" arrows, for "+arrowPrice+" per arrow?)){
+		arrowCon = prompt("How many arrows do you wish to buy?");
+		}
+		
+		for(i = !; 1 <= arrowCon; i++){
+		//add arrow to inventory
+		inventory.arrows ++;
+		console.log("you have "+inventory,arrows+" arrows");
+		//removies coin from inventory
+		inventory.coins --;
+		console.log("You have "inventory.coins+" coins");
+		//removes arrow from shop inventory
+		arrowShop --;
+		
+		
+		alert(You have purchased "+arrowCon+" arrows. Thank you!");
+		Shop();
+		}
+		
+		
+		
+		}
         */
