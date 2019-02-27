@@ -17,9 +17,14 @@ function Game(){
     
     alert("A Thief's Blunders")
     
-    var playerName = prompt("What is your name?");
+	//loop
+		var playerName = prompt("What is your name?");
+		
+		while(!confirm("Are you sure you want "+playerName+" as a name?")){
+		playerName = prompt("What name do you want?");
+		}
     
-    alert("You've made it quietly in the house "+ playerName);
+    alert("You've made it quietly in the house, "+ playerName);
     
     Kitchen();
     
@@ -153,6 +158,10 @@ function Game(){
         PrivateStudy();
                 }
 				
+				else if(deskdrawers){
+					PrivateStudy();
+				}
+				
             }
             
             else if(studydesk == "move on" || studydesk == "back to dining room" || studydesk == "go to dining room"){
@@ -177,13 +186,16 @@ function Game(){
 		var livingroom = prompt("It appears to be a living room; devoid of empty space. There are two couches with lacey throw pillows placed neatly on top. There's a table between the couches housing a glass vase filled with lilys. There are shelves with glass covers full of books and other items: porcelain figures, unused dishes, trophys, fabric flowers. \n -open shelves *requires key* \n -sit down \n -continue down entry to front door \n -go up the stairs \n -return to kitchen")
 		
 		if(livingroom == "sit down" || livingroom == "sit"){
-			var livingsit = confirm("You sit in the silent dark. Would you like to get up?")
+		//loop
+			var livingsit = prompt("You sit in the silent dark. Would you like to get up?")
 			
-			if(livingsit){
+			while(!confirm("You should get going.")){
+				livingsit = prompt("Would you like to get up?")
 				LivingRoom();
 			}
 			
-		}
+			}
+		
 		
 		else if(livingroom == "return to kitchen" || livingroom == "go to kitchen" || livingroom == "back to kitchen"){
 			Kitchen();
@@ -295,8 +307,8 @@ function Game(){
 		else if(adultbed == "search drawers"){
 			var adultdrawers = confirm("Are you sure you want to open it? There's a possibility that you might wake the sleeping couple")
 			
-			if(adultdrawers == "yes"){
-				alert("THIS IS AN ALERT!");
+			if(adultdrawers == "ok"){
+				alert("The drawers creaks open, bringing louder and disturbed snoring from the couple. You continue to open it. Slower, this time. That works better because you finish opening it no problem. There are cards in here with time slots written on them. You know when they'll be switching guard rounds now. Sneaking into the Captain's house has turned out to be a good idea after all.");
 				BedroomThree();
 			}
 		}
