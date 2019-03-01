@@ -50,7 +50,7 @@ function Game(){
                  }
                  
                  else if(kitchenlook == "look in drawers" || kitchenlook == "drawers look"){
-                     var kitchendrawers = confirm("actual silverware clutters theses drawers. They glitter in the moon's light. Do you take them?");
+                     var kitchendrawers = confirm("Actual silverware clutters theses drawers. They glitter in the moon's light. Do you take them?");
                      
                      if(kitchendrawers == "ok"){
                          // Adds stolen item +1
@@ -79,6 +79,11 @@ function Game(){
 		
 		else if(kitchen == "go forward"){
 			LivingRoom();
+		}
+		
+		else if(kitchenlook == "look in pantry"){
+			alert("These are words");
+			Kitchen();
 		}
         
         else{
@@ -129,7 +134,7 @@ function Game(){
     }
     
     function PrivateStudy(){
-        var study = prompt("It appears to be a private study, where a desk sits at the left of the doom, and a locked chest at the right. A painting is hung in front of you. \n -go to chest \n -take painting \n -go to desk \n -back to dining room");
+        var study = prompt("It appears to be a private study, where a desk sits at the left of the doom, and a locked chest at the right. A painting is hung in front of you. \n -go to chest*requires key* \n -take painting \n -go to desk \n -back to dining room");
         
         if(study == "go to chest"){
             var studychest = alert("It is locked, and cannot be opened without a key.");
@@ -151,8 +156,6 @@ function Game(){
                 if(deskdrawers){
                     // Adds key +1
                     inventory.keys ++;
-                    alert("You now have" +inventory.keys+" keys");
-					
 					// displays amount of keys in account
         alert("you have "+inventory.keys+" keys");
         PrivateStudy();
@@ -271,7 +274,11 @@ function Game(){
 		}
 		
 		else if(childbed == "look around"){
-			var childlook = prompt("thingthingthing")
+			var childlook = prompt("As you suspected, it's mostly toys and items you'd never need. There is a balcony connected to this room. You might be able to escape that way if you really wanted to. /n -go to balcony");
+			
+			if(childlook == "go to balcony"){
+				alert("You tried to go over and open the window doors silently, but you still manage to wake the child. 'Who are you?' she asks. *not finished -change from an alert to a switch*");
+			}
 		}
 		
 		else{
@@ -288,7 +295,12 @@ function Game(){
 		}
 		
 		else if(boybed == "sneak to chest"){
-			var boysneak = prompt("There's a small pouch with a little money in it, as well as a sheet of chainmail and a crumpled love letter. 'You'll always be the only one I love, Roan. I owed you my heart since I first-' you stop reading. Who writes this garbage? Scanning for a name, you find it's your younger sister. The fool... \n -take money \n -take chainmail")
+			var boysneak = prompt("There's a small pouch with a little money in it, as well as a sheet of chainmail and a crumpled love letter. 'You'll always be the only one I love, Roan. I owed you my heart since I first-' you stop reading. Who writes this garbage? Scanning for a name, you find it's your younger sister. The fool... \n -take money \n -take chainmail \n -leave room")
+		}
+		
+		if(boysneak == "leave room"){
+			alert("You drop the love letter and exit the room.")
+			Upstairs();
 		}
 		
 		else{
@@ -307,7 +319,7 @@ function Game(){
 		else if(adultbed == "search drawers"){
 			var adultdrawers = confirm("Are you sure you want to open it? There's a possibility that you might wake the sleeping couple")
 			
-			if(adultdrawers == "ok"){
+			if(adultdrawers){
 				alert("The drawers creaks open, bringing louder and disturbed snoring from the couple. You continue to open it. Slower, this time. That works better because you finish opening it no problem. There are cards in here with time slots written on them. You know when they'll be switching guard rounds now. Sneaking into the Captain's house has turned out to be a good idea after all.");
 				BedroomThree();
 			}
