@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	
 	<link rel="stylesheet"
-	href="https://cdjns.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.css">
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.css">
 		
 	<title>My Contacts</title>
 	
@@ -70,6 +70,34 @@
 	</ul>	
 </div>
 	
+<script>
+//get input element
+let filterValue = document.getElementById('filterInput').value.toUpperCase();
+//add event listener
+filterInput.addEventListener('keyup', filterNames);
+	
+function filterNames(){
+//get value of input
+let filterValue = document.getElementById('filterInput').value.toUpperCase();
+	
+//get names ul
+let ul = document.getElementById('names');
+//get lis from ul
+let li = ul.querySelectorAll('li.collection-item');
+	
+//loop through collection-item lis
+for(let i = 0;i < li.length;i++){
+let a = li[i].getElementsByTagName('a')[0];
+//if matched
+if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+	li[i].style.display = '';
+} else {
+	li[i].style.display = 'none';
+}
+}
+}		
+</script>
+		
 	</body>
 
 
