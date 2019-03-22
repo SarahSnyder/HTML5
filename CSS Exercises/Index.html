@@ -72,29 +72,67 @@
 				top:650px;
 			}
 			
-			div#triangle{
+			div#rectangle{
 				background-color:peru;
 				width:100px;
 				height:200px;
 				position:absolute;
 				left:700px;
 				top:700px;
+				transition:5s;
 			}
 		
+			img#flower{
+				display:block;
+				width:500px;
+				border-radius:15%;
+				position:absolute;
+				left:1000px;
+				top:500px;
+				z-index:1;
+				transition:2s;
+			}
+			
+			img#flower:hover{
+				width:1000px;
+				border-radius:50%;
+			}
+			
+			div#squared:hover{
+				border:inset 10px cornflowerblue;
+			}
+			
+			div#square:hover{
+				border:solid 3px tomato;
+			}
+			
+			div#oval:hover{
+				background-color:midnightblue;
+				width:120px;
+				height:170px;
+				border-radius:100%;
+				border:solid 5px aquamarine;
+			}
+			
+			div#rectangle:hover{
+				width:150px;
+				height:500px;
+			}
+			
 		</style>
 	</head>
 	<body>
-		//
-		<button onclick="div">Click Me!</button>
 		
-		<audio id='div' src="Magic Wand Noise-Soundbible.com-"
-			   
 		<h1>Css Exercises</h1>
 		<h3>Vol. 1</h3>
 		<div id="square"></div>
 		<div id="circle"></div>
 		<div id="squared"></div>
 		<div id="oval"></div>
-		<div id="triangle"></div>
+		<div id="rectangle"></div>
+		
+		
+		<img src="Flowers.jpg" id="flower" >
+		
 	</body>
 </html>
