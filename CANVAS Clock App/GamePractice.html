@@ -13,12 +13,12 @@
 <script>
 
 var myGamePiece;
-var myObstacle;
+var myObstacles = [];
 var myScore;
 
 function startGame() {
 	myGamePiece = new component(30, 30, "blue", 10, 120);
-	myObstacle = new component(10, 200, "pink", 300, 120);
+	//myObstacle = new component(10, 200, "pink", 300, 120);
 	myScore= new component("30px", "Consolas", "black", 280, 40, "text");
 	myGameArea.start();
 }	
