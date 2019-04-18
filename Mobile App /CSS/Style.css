@@ -15,3 +15,46 @@ div#container{
 	height:800px;
 	background-color:aqua;
 }
+
+header{
+	width:95.8%;
+	padding:25px;
+	background-color:goldenrod;
+}
+
+header h1{
+	color:deepskyblue;
+	/*font-family=:"Android",sans-serif;
+	*/
+	font-family: 'Roboto', sans-serif;
+	font-size:2.5EM
+}
+	
+	div#content{
+	width:100%;
+	background-color: antiquewhite;
+}
+
+
+nav{
+	width:100%;
+	background-color:royalblue;
+}
+
+nav ul{
+	display:block;
+	margin:auto;
+	color:aliceblue;
+	font-family: 'Roboto', sans-serif;
+	font-size:1.1em;
+	list-style:none;
+}
+
+nav ul li{
+	float:left;
+	padding:5px 100px;
+}
+
+.keepopen{
+	clear:both;
+}
