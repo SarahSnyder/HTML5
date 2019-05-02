@@ -28,7 +28,7 @@ header img#applogo{
 }
 
 header h1{
-	color:deepskyblue;
+	color:#3B9B9B;
 	margin:auto;
 	text-align:center;
 	/*font-family=:"Android",sans-serif;
@@ -87,22 +87,22 @@ footer{
 */
 
 
-icon-bar {
+.icon-bar {
 	position:absolute;
 	bottom:0;
 	left:0;
 	width:100%;
-	background-color: #555;
+	background-color: #3046EE;
 	overflow: auto;
 }
 
-icon bar a {
+.icon-bar a {
 	float:left;
 	width:20%;
 	text-align:center;
-	padding:12px;
+	padding:12px 0;
 	transition:all 0.03s ease;
-	color:white;
+	color:cornsilk;
 	font-size:36px;
 }
 
