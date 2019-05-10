@@ -42,6 +42,40 @@ header h1{
 	background-color: antiquewhite;
 }
 
+div#product_grp{
+	max-width:80%;
+	min-width:20%;
+	margin:auto;
+}
+
+figure.product{
+	display:block;
+	float:left;
+	margin:10px auto;
+	min-width:150px;
+	max-width:250px;
+	background-color:aliceblue;
+	border-radius:5px;
+}
+figure.product img{
+	display:block;
+	padding:10px 0;
+	width:80%;
+	margin:auto;
+}
+
+figure.product figcaption{
+	text-align: center;
+	color:blue;
+	font-family:sans-serif;
+	font-size: 24px;
+}
+
+.icon_bar{
+	position:fixed;
+}
+
+
 /*
 
 nav{
