@@ -36,10 +36,23 @@ header h1{
 	font-family: 'Roboto', sans-serif;
 	font-size:2.5EM
 }
+
+body h3{
+	color:#3B9B9B;
+	margin:auto;
+	text-align:center;
+	font-family: 'Roboto', sans-serif;
+	font-size:2.5EM
+}
 	
 	div#content{
 	width:100%;
 	background-color: antiquewhite;
+	color:#3B9B9B;
+	margin:auto;
+	text-align:center;
+	font-family: 'Roboto', sans-serif;
+	font-size:2.5EM
 }
 
 div#product_grp{
@@ -54,7 +67,7 @@ figure.product{
 	margin:10px auto;
 	min-width:150px;
 	max-width:250px;
-	background-color:aliceblue;
+	background-color:antiquewhite;
 	border-radius:5px;
 }
 figure.product img{
@@ -140,7 +153,13 @@ footer{
 	font-size:36px;
 }
 
-
+legend, span, input, textarea {
+	display:block;
+	margin:auto;
+	text-align:center;
+	font-family:sans-serif;
+	color:#3046EE;
+}
 
 /*
 
